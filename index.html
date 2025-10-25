@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BINKE - The Solana Ghost 🎃</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111111;
+      color: #ffffff;
+    }
+
+    .binke-yellow-bg {
+      background-color: #9ffa9c;
+    }
+    .binke-yellow-text {
+      color: #66ff00;
+    }
+
+    /* Hide scrollbar for the horizontal button list */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .spooky-text {
+      text-shadow: 0 0 10px #4ff49483, 0 0 20px #6afdaf10, 0 0 30px #3afd8b4b;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <header class="flex justify-between items-center py-6">
+      <div class="flex items-center space-x-3">
+        <!-- You can replace this with your GIF -->
+        <img src="../binke/images/logo.gif" alt="Binke Logo" class="w-12 h-12 rounded-full">
+        <h1 class="text-3xl font-black tracking-wider text-green-400">BINKE</h1>
+      </div>
+
+      <nav class="flex items-center space-x-3 sm:space-x-4">
+        <a href="t.me/binkeghost" title="Telegram" class="bg-black p-2 rounded-full hover:opacity-80 transition-opacity">
+          <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 11.9c-.88-.27-.88-1.37.2-1.64l15.97-6.1c.79-.31 1.5.24 1.3 1.06l-2.63 12.2c-.2 1.02-.8 1.25-1.5.78l-4.9-3.6l-2.3 2.2c-.25.24-.47.47-.95.47l.17-5.17z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/BinkeGhost" title="X (Twitter)" class="bg-black p-2 rounded-full hover:opacity-80 transition-opacity">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="#" class="bg-white text-black text-sm sm:text-base font-bold px-4 sm:px-6 py-3 rounded-full hover:bg-green-400 transition-colors">
+          Buy on DEX
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section 1: Halloween Message -->
+      <section class="text-center pt-12 pb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold binke-yellow-text mb-8 spooky-text">
+          🎃 Happy Halloween from BINKE Ghost! 👻
+        </h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+          The trenches of the solana are restless...  
+          Trick or treat your PFP and get <span class="binke-yellow-text font-bold">#BINKEFIED</span> this spooky season!
+        </p>
+
+        <!-- Binke Character (Static Image or Halloween GIF) -->
+        <div class="relative mt-12 mb-8 px-4">
+          <img id="binke-char-img" src="../binke/images/binke-main.png" alt="Binke Halloween Character" class="max-w-xs sm:max-w-sm mx-auto transition-all duration-300">
+          <div class="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+            <p class="text-7xl font-black text-green-600 opacity-10">#HALLOWEEN</p>
+            <p class="text-7xl font-black text-green-600 opacity-20 -mt-8">#HALLOWEEN</p>
+            <p class="text-7xl font-black text-green-600 opacity-10 -mt-8">#HALLOWEEN</p>
+          </div>
+        </div>
+
+        <!-- Contract Address -->
+        <div class="max-w-md mx-auto bg-gray-800 border border-gray-700 rounded-full p-2 pr-3 flex justify-between items-center space-x-2">
+          <span id="contract-address" class="font-mono text-xs sm:text-sm text-gray-400 pl-3 overflow-hidden text-ellipsis whitespace-nowrap">
+            0xHALLOWEEN0000DEADBEEF666666666666666666
+          </span>
+          <button id="copy-btn" class="flex-shrink-0 bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition-colors" title="Copy to clipboard">
+            <svg id="copy-icon-default" class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            <svg id="copy-icon-success" class="w-4 h-4 text-green-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 2: Binkefy -->
+      <section class="binke-yellow-bg text-black text-center py-16 sm:py-24 px-6 rounded-t-3xl">
+        <h2 class="text-2xl sm:text-3xl font-black">GET #BINKEFIED This Halloween with spooky pfp</h2>
+        <p class="text-xl sm:text-2xl font-medium mt-2">
+          Summon your spooky BINKE PFP!
+        </p>
+
+        <div class="mt-8 max-w-lg mx-auto">
+          <input id="x-handle" type="text" placeholder="Enter your X handle (e.g: @BinkeGhost)" class="w-full text-center text-lg bg-white/60 border-2 border-black rounded-full px-6 py-4 placeholder-gray-800/70 focus:outline-none focus:ring-2 focus:ring-black">
+          
+          <button id="binkefy-btn" class="bg-black text-white text-xl font-bold rounded-full px-12 py-4 mt-4 hover:bg-gray-800 transition-colors">
+            Binkefy Me!
+          </button>
+        </div>
+
+        <div id="pfp-result-box" class="hidden mt-12 items-center justify-center gap-6 md:gap-8 flex-col md:flex-row">
+          <img id="pfp-result-img" src="#" alt="Your Binke PFP" class="w-48 h-48 rounded-2xl border-4 border-black object-cover shadow-lg">
+          <div class="flex items-center space-x-4">
+            <a id="flex-btn" href="#" target="_blank" class="flex items-center space-x-2 bg-black text-white text-lg font-bold rounded-full px-6 py-3 hover:bg-gray-800 transition-colors" title="Flex on X">
+              <span>Flex on</span>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/>
+              </svg>
+            </a>
+            <a id="download-btn" href="#" download="binke-halloween-pfp.png" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors" title="Download PFP">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap (kept same) -->
+      <section class="text-center pt-16 pb-20 px-6">
+        <h2 class="text-5xl sm:text-6xl font-black binke-yellow-text">THE ROADMAP</h2>
+        <h3 class="text-3xl sm:text-2xl font-black text-white mt-2">Utility... Who cares? Binke is a Ghost Pill on Pumpfun.
+          Mission is to Get Everyone #BINKEFIED this Halloween</h3>
+        <div class="mt-12">
+          <img src="../binke/images/alon-ban.png" alt="Binke Roadmap" class="w-full max-w-3xl max-h-3xl mx-auto rounded-2xl shadow-lg opacity-40">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 text-gray-400 py-10 px-6">
+    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
+      <div class="text-sm">
+        <p>Made with ❤️ by @BinkeGhost</p>
+        <p>Celebrate This Halloween with Binke spooky PFP 🎃</p>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="t.me/binkeghost" title="Telegram" class="bg-gray-800 p-2 rounded-full hover:bg-blue-700 transition-colors">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9.78 18.65l.28-4.23l7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3L3.64 11.9c-.88-.27-.88-1.37.2-1.64l15.97-6.1c.79-.31 1.5.24 1.3 1.06l-2.63 12.2c-.2 1.02-.8 1.25-1.5.78l-4.9-3.6l-2.3 2.2c-.25.24-.47.47-.95.47l.17-5.17z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/BinkeGhost" title="X (Twitter)" class="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Copy CA
+      const copyBtn = document.getElementById('copy-btn');
+      const copyAddress = document.getElementById('contract-address').innerText.trim();
+      const copyIconDefault = document.getElementById('copy-icon-default');
+      const copyIconSuccess = document.getElementById('copy-icon-success');
+
+      copyBtn.addEventListener('click', () => {
+        try {
+          navigator.clipboard.writeText(copyAddress).then(() => showCopySuccess());
+        } catch {
+          const textArea = document.createElement('textarea');
+          textArea.value = copyAddress;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          showCopySuccess();
+        }
+      });
+
+      function showCopySuccess() {
+        copyIconDefault.classList.add('hidden');
+        copyIconSuccess.classList.remove('hidden');
+        setTimeout(() => {
+          copyIconDefault.classList.remove('hidden');
+          copyIconSuccess.classList.add('hidden');
+        }, 2000);
+      }
+
+      // Binkefy Tool
+      const binkefyBtn = document.getElementById('binkefy-btn');
+      const xHandleInput = document.getElementById('x-handle');
+      const pfpResultBox = document.getElementById('pfp-result-box');
+      const pfpResultImg = document.getElementById('pfp-result-img');
+      const downloadBtn = document.getElementById('download-btn');
+      const flexBtn = document.getElementById('flex-btn');
+
+      // Automatically generate a list of 50 image paths
+      const pfpDatabase = Array.from({ length: 15 }, (_, i) => `../binke/images/pfps/binke${i + 1}.png`);
+
+
+
+      binkefyBtn.addEventListener('click', () => {
+        const xHandle = xHandleInput.value.trim() || "A new Binker";
+        const selectedPfp = pfpDatabase[Math.floor(Math.random() * pfpDatabase.length)];
+        pfpResultImg.src = selectedPfp;
+        downloadBtn.href = selectedPfp;
+        downloadBtn.download = `binke_pfp_for_${xHandle}.png`;
+        const buyLink = "https://pump.fun/coin/binke"; // replace with your actual buy link
+        const contractAddress = "0xHALLOWEEN0000DEADBEEF666666666666666666";
+
+        const tweetText = `
+        🎃 Happy Halloween season! 👻
+        I bought $BINKE and got #BINKIFIED with this spooky PFP! 🪄
+        Get your spooky here 👇
+
+        Buy $BINKE: ${buyLink}
+        CA: ${contractAddress}
+
+        (Attach your spooky PFP image below 👇)
+        `;
+
+        flexBtn.href = `https://x.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+        pfpResultBox.classList.remove('hidden');
+        pfpResultBox.classList.add('flex');
+      });
+    });
+  </script>
+
+</body>
+</html>
